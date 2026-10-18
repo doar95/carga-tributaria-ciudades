@@ -1,0 +1,55 @@
+variable,descripcion
+codigo,Código Divipola del municipio (5 dígitos)
+municipio,Nombre del municipio (DANE)
+codDepto,Código Divipola del departamento
+departamento,Nombre del departamento
+anio,Vigencia fiscal
+categoria,"Categoría municipal de la vigencia (CGN; E especial, 1 a 6). Disponible 2003 a 2025"
+categoria2025,"Categoría vigente en 2025, usada para grupos fijos"
+grupoComparacion,"Grupo de comparación: Bogotá, especial sin Bogotá, categorías 1 a 6"
+pob,"Población total (DANE, proyecciones con base en el Censo 2018)"
+pobCabecera,Población en cabecera municipal
+participacionUrbana,Población en cabecera sobre población total
+smmlv,"Salario mínimo mensual legal vigente, COP corrientes (Banco de la República)"
+ipcDic,"IPC de diciembre, base diciembre 2018 = 100 (DANE 2003 a 2025; Banco de la República antes)"
+factor2025,Factor para expresar COP corrientes del año en COP de 2025
+reporta,1 si el municipio reporta ingresos totales positivos
+alertaCalidad,1 si el recaudo real per cápita se aleja más de tres veces de la mediana móvil de siete años
+fuente,Fuente fiscal: ejecuciones presupuestales (1984 a 1999) u OEC (2000 a 2025)
+ingresosTotales,"Ingresos totales, millones de COP corrientes"
+ingresosCorrientes,"Ingresos corrientes, millones de COP corrientes"
+tributarios,"Ingresos tributarios, millones de COP corrientes"
+predial,"Impuesto predial, millones de COP corrientes"
+ica,"Impuesto de industria y comercio, millones de COP corrientes"
+otrosTributarios,"Otros tributos incluida la sobretasa a la gasolina, millones de COP corrientes"
+sobretasaGasolina,"Sobretasa a la gasolina (desagregada desde 2000), millones de COP corrientes"
+noTributarios,"Ingresos no tributarios, millones de COP corrientes"
+transferenciasCorrientes,"Transferencias corrientes, millones de COP corrientes"
+transferenciasCapital,"Transferencias nacionales de capital (SGP y otras), millones de COP corrientes"
+regalias,"Regalías, millones de COP corrientes"
+gastosTotales,"Gastos totales, millones de COP corrientes"
+funcionamiento,"Gastos de funcionamiento, millones de COP corrientes"
+inversion,"Gastos de capital (inversión), millones de COP corrientes"
+tributariosConst2025,"Ingresos tributarios, millones de COP constantes de 2025"
+predialConst2025,"Impuesto predial, millones de COP constantes de 2025"
+icaConst2025,"Impuesto de industria y comercio, millones de COP constantes de 2025"
+otrosTributariosConst2025,"Otros tributos incluida la sobretasa a la gasolina, millones de COP constantes de 2025"
+ingresosTotalesConst2025,"Ingresos totales, millones de COP constantes de 2025"
+transferenciasCorrientesConst2025,"Transferencias corrientes, millones de COP constantes de 2025"
+transferenciasCapitalConst2025,"Transferencias nacionales de capital (SGP y otras), millones de COP constantes de 2025"
+regaliasConst2025,"Regalías, millones de COP constantes de 2025"
+pcTributarios2025,"Ingresos tributarios por habitante, COP constantes de 2025"
+pcPredial2025,"Predial por habitante, COP constantes de 2025"
+pcIca2025,"ICA por habitante, COP constantes de 2025"
+pcOtrosTributarios2025,"Otros tributos por habitante, COP constantes de 2025"
+pcTransferencias2025,"Transferencias por habitante, COP constantes de 2025"
+pcRegalias2025,"Regalías por habitante, COP constantes de 2025"
+tributariosSMMLVpc,Ingresos tributarios por habitante en salarios mínimos mensuales
+predialSMMLVpc,Predial por habitante en salarios mínimos mensuales
+icaSMMLVpc,ICA por habitante en salarios mínimos mensuales
+autonomiaTributaria,Ingresos tributarios sobre ingresos totales
+participacionPredial,Predial sobre ingresos tributarios
+participacionICA,ICA sobre ingresos tributarios
+vaMunicipal,"Valor agregado municipal, miles de millones de COP corrientes (DANE, 2011 a 2024)"
+pcVA2025,"Valor agregado por habitante, COP constantes de 2025"
+tributariosSobreVA,Ingresos tributarios sobre valor agregado municipal

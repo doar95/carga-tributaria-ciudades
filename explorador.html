@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Explorador de carga tributaria municipal</title>
+<meta name="description" content="Explorador interactivo de ingresos tributarios municipales de Colombia, 1985 a 2025: mapa, series, ranking y descarga.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/paper.css">
+<link rel="stylesheet" href="assets/css/explorador.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.35.2/plotly.min.js"></script>
+</head>
+<body class="lang-es">
+<header class="topbar">
+  <div class="brand"><span class="es">Carga tributaria municipal en Colombia · Explorador</span><span class="en">Municipal tax burden in Colombia · Explorer</span></div>
+  <nav>
+    <a href="index.html"><span class="es">Documento</span><span class="en">Paper</span></a>
+    <a href="explorador.html" class="active"><span class="es">Explorador</span><span class="en">Explorer</span></a>
+    <a class="opt" href="https://github.com/doar95/carga-tributaria-ciudades/tree/main/data"><span class="es">Datos</span><span class="en">Data</span></a>
+    <a class="opt" href="https://github.com/doar95/carga-tributaria-ciudades">GitHub</a>
+  </nav>
+  <div class="lang" role="group" aria-label="Idioma"><button type="button" data-l="es" class="on">ES</button><button type="button" data-l="en">EN</button></div>
+</header>
+<div class="govbar"></div>
+<div class="ex-wrap">
+  <div class="ex-intro">
+    <h1><span class="es">Explorador de ingresos tributarios municipales, 1985 a 2025</span><span class="en">Municipal tax revenue explorer, 1985 to 2025</span></h1>
+    <p class="es">Seleccione un indicador, un año y, si lo desea, un departamento o una categoría. Puede agregar hasta seis municipios para compararlos con Bogotá, que siempre aparece en rojo. Los valores per cápita en pesos constantes están expresados en COP de 2025. Los años sin reporte o con alerta de calidad se muestran vacíos.</p>
+    <p class="en">Choose an indicator, a year and, optionally, a department or a category. You can add up to six municipalities to compare with Bogotá, which always appears in red. Per capita values in constant pesos are expressed in 2025 COP. Years without reporting or with a quality flag are shown empty.</p>
+  </div>
+  <div class="filters">
+    <div class="f"><label for="sel-ind"><span class="es">Indicador</span><span class="en">Indicator</span></label><select id="sel-ind"></select></div>
+    <div class="f"><label><span class="es">Unidad</span><span class="en">Unit</span></label><div id="seg-unit"></div></div>
+    <div class="f"><label for="sel-dep"><span class="es">Departamento</span><span class="en">Department</span></label><select id="sel-dep"></select></div>
+    <div class="f"><label for="sel-cat"><span class="es">Categoría 2025</span><span class="en">2025 category</span></label><select id="sel-cat"></select></div>
+    <div class="f year"><label for="rng-year"><span class="es">Año</span><span class="en">Year</span>: <b id="lbl-year">2025</b></label><input type="range" id="rng-year" min="1985" max="2025" step="1" value="2025"></div>
+    <div class="f grow"><label for="inp-mun"><span class="es">Agregar municipio a la comparación</span><span class="en">Add municipality to comparison</span></label><input id="inp-mun" list="dl-mun" autocomplete="off" placeholder=""><datalist id="dl-mun"></datalist></div>
+  </div>
+  <div id="chips" class="chips"></div>
+  <div class="ex-grid">
+    <section class="card"><h3 id="t-map"></h3><div id="ex-map" class="ex-chart tallmap"></div></section>
+    <section class="card"><h3 id="t-ts"></h3><div id="ex-ts" class="ex-chart"></div><p class="note" id="n-ts"></p></section>
+  </div>
+  <section class="card">
+    <div class="rank-head"><h3 id="t-rank"></h3><button type="button" id="btn-dl" class="btn"><span class="es">Descargar selección (CSV)</span><span class="en">Download selection (CSV)</span></button></div>
+    <div class="tbl-wrap rank"><table class="tbl" id="tbl-rank"></table></div>
+  </section>
+  <footer class="site">
+    <span class="es">Fuente: cálculos de los autores con datos abiertos de DNP, DANE, Banco de la República y Contaduría General de la Nación (Ley 1712 de 2014). Base completa disponible en la sección de datos.</span>
+    <span class="en">Source: authors' calculations with open data from DNP, DANE, Banco de la República and the National Accounting Office (Law 1712 of 2014). The full database is available in the data section.</span>
+  </footer>
+</div>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/explorador.js"></script>
+</body>
+</html>
