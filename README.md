@@ -16,21 +16,24 @@ Preprint dinámico y base de datos abierta sobre ingresos tributarios municipale
 | `explorador.html` | Tablero con filtros por indicador, año, departamento, categoría y municipio |
 | `data/` | Base pública, diccionario, presión departamental e insumos intermedios |
 | `code/` | Scripts de construcción y análisis en Python |
+| `insumos/` | Archivos oficiales de entrada y manifiesto con huellas SHA256 |
 | `assets/` | Estilos, scripts y salidas en JSON que alimentan el sitio |
 
 ## Reproducción
 
-Requiere Python 3.11 o superior con `pandas`, `numpy`, `openpyxl`, `xlrd`, `pyarrow`, `statsmodels`, `scikit-learn` y `scipy`. Descargue los archivos oficiales listados en `data/README.md` en una carpeta y ejecute:
+La carpeta `insumos/` contiene copias de los 14 archivos oficiales usados, con su nombre original, tamaño y huella SHA256 en `insumos/MANIFIESTO.csv`. Con Python 3.13 y las librerías de `requirements.txt`:
 
 ```bash
-python code/01_construir_panel.py RUTA_ARCHIVOS   # panel base, población, IPC, salario mínimo, categorías, PIB
-python code/02_indicadores.py                     # indicadores y base pública
-python code/03_analisis.py                        # agregados, presión tributaria y datos de mapas
-python code/04_econometria_ml.py                  # convergencia, ciclo político, control sintético y aprendizaje automático
-python code/05_exportar_web.py                    # series compactas para el explorador
+pip install -r requirements.txt
+python code/00_verificar_insumos.py CARPETA_CON_SUS_ARCHIVOS trabajo/insumos   # compara sus archivos con el manifiesto
+python code/01_construir_panel.py trabajo/insumos
+python code/02_indicadores.py
+python code/03_analisis.py
+python code/04_econometria_ml.py trabajo/insumos
+python code/05_exportar_web.py
 ```
 
-El script 04 lee el PIB en volumen desde la misma carpeta de archivos oficiales (ajuste la variable `RAW` si es necesario).
+El proceso tarda unos cuatro minutos. Con estos insumos y versiones, `assets/data/*.json` y `data/panelCargaTributaria1984a2025.csv` se reproducen byte a byte (verificado el 22 de octubre de 2026).
 
 ## Fuentes y normativa de datos abiertos
 

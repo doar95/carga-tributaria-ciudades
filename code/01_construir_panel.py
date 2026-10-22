@@ -16,7 +16,7 @@ import sys, re, unicodedata
 from pathlib import Path
 import numpy as np, pandas as pd, openpyxl
 
-RAW = Path(sys.argv[1]) if len(sys.argv) > 1 else Path('/home/claude/work/raw')
+RAW = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parents[1] / 'insumos'
 OUT = Path(__file__).resolve().parents[1] / 'data'
 INT = OUT / 'intermedios'
 INT.mkdir(parents=True, exist_ok=True)

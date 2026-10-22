@@ -1,5 +1,5 @@
 """Ejercicios econométricos y de aprendizaje automático."""
-import json, warnings
+import json, sys, warnings
 from pathlib import Path
 import numpy as np, pandas as pd, openpyxl
 import statsmodels.formula.api as smf
@@ -13,7 +13,7 @@ warnings.filterwarnings('ignore')
 
 R = Path(__file__).resolve().parents[1]
 I = R / 'data' / 'intermedios'
-RAW = Path('/home/claude/work/raw')
+RAW = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parents[1] / 'insumos'
 p = pd.read_parquet(I / 'panelFinal.parquet')
 ok = p[(p.reporta == 1) & (p.alertaCalidad == 0) & p.pob.notna() & (p.pcTributarios2025 > 0)].copy()
 ok['lpc'] = np.log(ok.pcTributarios2025)
