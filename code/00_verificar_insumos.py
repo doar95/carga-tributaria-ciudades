@@ -25,6 +25,9 @@ for m in man:
         shutil.copy2(f, dst / m['nombreEnRepositorio']); ok += 1
         print(f"{m['nombreOriginal'][:45]:45s} IDENTICO (subido como {f.name})")
     else:
-        shutil.copy2(R / 'insumos' / m['nombreEnRepositorio'], dst / m['nombreEnRepositorio']); rep += 1
-        print(f"{m['nombreOriginal'][:45]:45s} NO SUBIDO O DISTINTO: se usa la copia del repositorio")
+        copia = R / 'insumos' / m['nombreEnRepositorio']
+        integro = hashlib.sha256(copia.read_bytes()).hexdigest() == m['sha256']
+        shutil.copy2(copia, dst / m['nombreEnRepositorio']); rep += 1
+        estado = 'huella verificada' if integro else 'ATENCION: la huella NO coincide con el manifiesto'
+        print(f"{m['nombreOriginal'][:45]:45s} copia del repositorio ({estado})")
 print(f"\n{ok} archivos subidos coinciden byte a byte; {rep} se tomaron del repositorio. Carpeta lista: {dst}")
