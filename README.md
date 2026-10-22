@@ -17,6 +17,7 @@ Preprint dinámico y base de datos abierta sobre ingresos tributarios municipale
 | `data/` | Base pública, diccionario, presión departamental e insumos intermedios |
 | `code/` | Scripts de construcción y análisis en Python |
 | `insumos/` | Archivos oficiales de entrada y manifiesto con huellas SHA256 |
+| `sitio_autocontenido/` | Las dos páginas en un solo archivo cada una, para abrir con doble clic sin servidor |
 | `assets/` | Estilos, scripts y salidas en JSON que alimentan el sitio |
 
 ## Reproducción
@@ -31,6 +32,7 @@ python code/02_indicadores.py
 python code/03_analisis.py
 python code/04_econometria_ml.py trabajo/insumos
 python code/05_exportar_web.py
+python code/06_sitio_autocontenido.py   # index.html y explorador.html autocontenidos en sitio_autocontenido/
 ```
 
 El proceso tarda unos cuatro minutos. Con estos insumos y versiones, `assets/data/*.json` y `data/panelCargaTributaria1984a2025.csv` se reproducen byte a byte (verificado el 22 de octubre de 2026).

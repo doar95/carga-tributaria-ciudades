@@ -92,7 +92,11 @@ function segmented(id, opts, initial, onChange) {
     box.appendChild(b);
   });
 }
-async function getJSON(u) { const r = await fetch(u); return r.json(); }
+// En la versión autocontenida los datos vienen incrustados en window.EMBED y no se descargan.
+async function getJSON(u) {
+  if (window.EMBED && window.EMBED[u]) return window.EMBED[u];
+  const r = await fetch(u); return r.json();
+}
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.l)));
   const mb = document.querySelector('.menu-btn');
